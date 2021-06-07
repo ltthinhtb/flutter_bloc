@@ -8,12 +8,12 @@ import 'package:meta/meta.dart';
 import 'home_api_provider.dart';
 
 class HomeRepository {
-  ApiProvider apiProvider;
-  HomeApiProvider homeApiProvider;
-  InternetCheck internetCheck;
-  Env env;
+  final ApiProvider apiProvider;
+   HomeApiProvider homeApiProvider;
+  final InternetCheck internetCheck;
+  final Env env;
 
-  HomeRepository(
+  HomeRepository(this.homeApiProvider,
       {@required this.env,
       @required this.apiProvider,
       @required this.internetCheck}) {
@@ -22,7 +22,7 @@ class HomeRepository {
   }
 
   Future<DataResponse<List<Book>>> fetchBooks() async {
-    final response = await homeApiProvider.fetchBooks();
+    final Map<String, dynamic> response = await homeApiProvider.fetchBooks();
 
     if (response == null) {
       return DataResponse.connectivityError();

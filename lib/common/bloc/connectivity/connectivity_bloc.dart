@@ -7,6 +7,7 @@ import 'package:flutter_boilerplate/common/bloc/connectivity/connectivity_state.
 import 'package:rxdart/rxdart.dart';
 
 class ConnectivityBloc extends Bloc<ConnectivityEvent, ConnectivityState> {
+
   StreamSubscription subscription;
 
   ConnectivityBloc() : super(AppStarted());

@@ -13,5 +13,5 @@ void main() {
 
   runZonedGuarded(() {
     runApp(App(env: EnvValue.staging));
-  }, (error, stackTrace) async {});
+  }, (Object error, StackTrace stackTrace) async {});
 }

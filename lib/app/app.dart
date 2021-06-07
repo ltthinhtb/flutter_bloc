@@ -23,31 +23,31 @@ class App extends StatelessWidget {
     return MultiRepositoryProvider(
         providers: [
           RepositoryProvider<Env>(
-            create: (context) => env,
+            create: (BuildContext context) => env,
             lazy: true,
           ),
           RepositoryProvider<InternetCheck>(
-            create: (context) => InternetCheck(),
+            create: (BuildContext context) => InternetCheck(),
             lazy: true,
           ),
           RepositoryProvider<UserRepository>(
-            create: (context) => UserRepository(),
+            create: (BuildContext context) => UserRepository(),
             lazy: true,
           ),
           RepositoryProvider<ApiProvider>(
-            create: (context) => ApiProvider(),
+            create: (BuildContext context) => ApiProvider(),
             lazy: true,
           ),
         ],
         child: MultiBlocProvider(
           providers: [
             BlocProvider<ConnectivityBloc>(
-              create: (context) {
+              create: (BuildContext context) {
                 return ConnectivityBloc();
               },
             ),
             BlocProvider<AuthenticationBloc>(
-              create: (context) {
+              create: (BuildContext context) {
                 return AuthenticationBloc(
                     userRepository:
                         RepositoryProvider.of<UserRepository>(context))
